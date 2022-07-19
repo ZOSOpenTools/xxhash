@@ -1,0 +1,25 @@
+diff --git a/Makefile b/Makefile
+index 2fbefbc..ddbe4a3 100644
+--- a/Makefile
++++ b/Makefile
+@@ -62,6 +62,11 @@ ifeq ($(UNAME), Darwin)
+ 	SHARED_EXT_MAJOR = $(LIBVER_MAJOR).$(SHARED_EXT)
+ 	SHARED_EXT_VER = $(LIBVER).$(SHARED_EXT)
+ 	SONAME_FLAGS = -install_name $(LIBDIR)/libxxhash.$(SHARED_EXT_MAJOR) -compatibility_version $(LIBVER_MAJOR) -current_version $(LIBVER)
++else ifeq ($(UNAME), OS/390)
++	SHARED_EXT = so
++	SONAME_FLAGS = -o libxxhash.$(SHARED_EXT).$(LIBVER_MAJOR)
++	SHARED_EXT_MAJOR = $(SHARED_EXT).$(LIBVER_MAJOR)
++	SHARED_EXT_VER = $(SHARED_EXT).$(LIBVER)
+ else
+ 	SONAME_FLAGS = -Wl,-soname=libxxhash.$(SHARED_EXT).$(LIBVER_MAJOR)
+ 	SHARED_EXT = so
+@@ -417,7 +422,7 @@ lint-unicode:
+ # =========================================================
+ # make install is validated only for the following targets
+ # =========================================================
+-ifneq (,$(filter Linux Darwin GNU/kFreeBSD GNU Haiku OpenBSD FreeBSD NetBSD DragonFly SunOS CYGWIN% , $(UNAME)))
++ifneq (,$(filter Linux Darwin GNU/kFreeBSD GNU Haiku OpenBSD FreeBSD NetBSD DragonFly SunOS CYGWIN% OS/390 , $(UNAME)))
+ 
+ DESTDIR     ?=
+ # directory variables: GNU conventions prefer lowercase
