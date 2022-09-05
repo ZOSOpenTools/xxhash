@@ -12,6 +12,7 @@ export ZOPEN_TYPE="TARBALL"
 export ZOPEN_TARBALL_URL="https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.1.tar.gz"
 export ZOPEN_TARBALL_DEPS="curl gzip make coreutils"
 
+export ZOPEN_EXTRA_CFLAGS='-qnocsect'
 export ZOPEN_BOOTSTRAP=skip
 export ZOPEN_CONFIGURE=skip
 export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes prefix=\${ZOPEN_INSTALL_DIR}" 
