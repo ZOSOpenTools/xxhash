@@ -13,3 +13,9 @@ export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes prefix=\${ZOPEN_INSTALL_DIR}"
 
 rm -f v0.8.1
 ln -s xxHash-0.8.1 v0.8.1
+
+zopen_check_results()
+{
+  return 3 # non-functional
+}
+
