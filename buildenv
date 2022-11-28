@@ -10,7 +10,6 @@ export ZOPEN_BOOTSTRAP=skip
 export ZOPEN_CONFIGURE=skip
 export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes prefix=\${ZOPEN_INSTALL_DIR}" 
 export ZOPEN_NAME="xxHash-0.8.1"
-#export ZOPEN_CHECK="skip"
 rm -f v0.8.1
 ln -s ${ZOPEN_NAME} v0.8.1
 
