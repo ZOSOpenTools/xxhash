@@ -42,6 +42,5 @@ zopen_check_results()
   echo "actualFailures:${actualFailures}"
   echo "totalTests:${totalTests}"
   echo "expectedFailures:${expectedFailures}"
-  return 3 # non-functional
 }
 
