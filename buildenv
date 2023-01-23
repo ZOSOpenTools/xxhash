@@ -10,12 +10,38 @@ export ZOPEN_BOOTSTRAP=skip
 export ZOPEN_CONFIGURE=skip
 export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes prefix=\${ZOPEN_INSTALL_DIR}" 
 export ZOPEN_NAME="xxHash-0.8.1"
-export ZOPEN_CHECK="skip"
 rm -f v0.8.1
 ln -s ${ZOPEN_NAME} v0.8.1
 
+zopen_append_to_env()
+{
+cat <<ZZ
+if [ ! -z "\$ZOPEN_IN_ZOPEN_BUILD" ]; then
+  export ZOPEN_EXTRA_CFLAGS="\${ZOPEN_EXTRA_CFLAGS} -I\$PWD/include"
+  export ZOPEN_EXTRA_CXXFLAGS="\${ZOPEN_EXTRA_CXXFLAGS} -I\$PWD/include"
+  export ZOPEN_EXTRA_LDFLAGS="\${ZOPEN_EXTRA_LDFLAGS} -L\$PWD/lib"
+  export ZOPEN_EXTRA_LIBS="\${ZOPEN_EXTRA_LIBS} -lxxhash"
+fi
+ZZ
+}
+
 zopen_check_results()
 {
+# Just look for ' checks completed successfully '
+  dir="$1"
+  pfx="$2"
+  chk="$1/$2_check.log"
+
+  totalTests=1
+  if grep -q ' checks completed successfully ' $chk ; then
+    actualFailures=0
+  else
+    actualFailures=1
+  fi
+  expectedFailures=0
+  echo "actualFailures:${actualFailures}"
+  echo "totalTests:${totalTests}"
+  echo "expectedFailures:${expectedFailures}"
   return 3 # non-functional
 }
 

@@ -1,0 +1,13 @@
+diff --git a/tests/Makefile b/tests/Makefile
+index 37424ce..298cfa2 100644
+--- a/tests/Makefile
++++ b/tests/Makefile
+@@ -23,7 +23,7 @@
+ #   - xxHash source repository: https://github.com/Cyan4973/xxHash
+ # ################################################################
+ 
+-CFLAGS += -Wall -Wextra -Wundef -g
++CFLAGS += -g
+ 
+ CP = cp
+ NM = nm
