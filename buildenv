@@ -45,3 +45,7 @@ zopen_check_results()
   return 3 # non-functional
 }
 
+zopen_get_version()
+{
+    ./xxh32sum -V 2>&1 | head -1 | awk '{print $2}'
+}
