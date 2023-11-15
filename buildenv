@@ -3,7 +3,7 @@ XXHASH_VERSION="0.8.1"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_STABLE_URL="https://github.com/Cyan4973/xxHash/archive/refs/tags/v${XXHASH_VERSION}.tar.gz"
-export ZOPEN_STABLE_DEPS="curl gzip make coreutils"
+export ZOPEN_STABLE_DEPS="curl gzip make coreutils zoslib"
 
 export ZOPEN_EXTRA_CFLAGS='-qnocsect'
 export ZOPEN_BOOTSTRAP=skip
@@ -12,7 +12,6 @@ export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes prefix=\${ZOPEN_INSTALL_DIR}"
 export ZOPEN_NAME="xxHash-${XXHASH_VERSION}"
 rm -f "v${XXHASH_VERSION}"
 ln -s ${ZOPEN_NAME} "v${XXHASH_VERSION}"
-
 
 zopen_append_to_env()
 {
