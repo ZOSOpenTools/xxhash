@@ -6,10 +6,10 @@ node('linux')
                         branches: [[name: '*/main']],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [],
-                        userRemoteConfigs: [[url: 'https://github.com/ZOSOpenTools/xxhashport.git']]])
+                        userRemoteConfigs: [[url: 'https://github.com/zopencommunity/xxhashport.git']]])
         }
 
         stage('Build') {
-                build job: 'Port-Pipeline', parameters: [string(name: 'PORT_GITHUB_REPO', value: 'https://github.com/ZOSOpenTools/xxhashport.git'), string(name: 'PORT_DESCRIPTION', value: 'An Extremely fast Hash algorithm, running at RAM speed limits.' )]
+                build job: 'Port-Pipeline', parameters: [string(name: 'PORT_GITHUB_REPO', value: 'https://github.com/zopencommunity/xxhashport.git'), string(name: 'PORT_DESCRIPTION', value: 'An Extremely fast Hash algorithm, running at RAM speed limits.' )]
         }
 }
