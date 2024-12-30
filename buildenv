@@ -1,5 +1,5 @@
 # bump: xxhash-version /XXHASH_VERSION="(.*)"/ https://github.com/Cyan4973/xxHash.git|semver:^0
-XXHASH_VERSION="0.8.2"
+XXHASH_VERSION="0.8.3"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_CATEGORIES="utilities"
